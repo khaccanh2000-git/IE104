@@ -1,0 +1,22 @@
+<div class="container  w-50 loginpage">
+    <h1 class="pt-5">Login </h1>
+    <%- include('../part/message') %>
+    <form action="/user/login" method="POST">
+          <div class="form-floating mb-3">
+            <input type="email" required class="form-control" name="email" 
+            >
+            <label for="floatingInput">Email</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" required class="form-control" name="password" 
+            >
+            <label for="floatingInput">Password</label>
+          </div>
+          <div class="form-floating">
+            <input type="submit" class="form-control btn btn-primary login-btn" value="Login">
+          </div>
+
+          <a href="/user/github" class="btn btn-primary mt-3 github-btn">Login with Github <i class="fa fa-github"></i></a>
+          <a href="/user/google" class="btn btn-primary mt-3 google-btn">Login with Google <i class="fa fa-google"></i></a>
+    </form>
+  </div>
