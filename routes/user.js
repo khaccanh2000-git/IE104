@@ -43,7 +43,6 @@ router.get("/profile", check, (req, res) => {
   res.render("users/profile", { name: name });
 });
 
-
 router.post("/", async (req, res) => {
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
@@ -58,7 +57,7 @@ router.post("/", async (req, res) => {
     });
     await users.save();
     req.flash("success", "Insert succesfull");
-    res.redirect("/user");
+    res.redirect("/user/login");
   } catch (e) {
     req.flash("error", "Insert failed");
     console.log(e);
