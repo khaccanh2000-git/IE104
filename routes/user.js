@@ -18,14 +18,6 @@ function check(req, res, next) {
   }
   res.redirect("/user/login");
 }
-router.get("/profile", check, (req, res) => {
-  let name = "No name";
-  if (req.user) {
-    name = "name: " + req.user.name;
-  }
-  // console.log(value)
-  res.render("users/profile", { name: name });
-});
 // LOGIN
 router.get("/login", (req, res) => {
   res.render("users/login");
@@ -33,11 +25,24 @@ router.get("/login", (req, res) => {
 router.post(
   "/login",
   passport.authenticate("local", {
-    successRedirect: "/user/profile",
+    successRedirect: "/",
     failureRedirect: "/user/login",
     failureFlash: true,
   })
 );
+router.get("/profile", check, (req, res) => {
+  let name = "No name";
+  if (req.user) {
+    id = req.user._id;
+    name = req.user.name;
+    email = req.user.email;
+    address = req.user.address;
+    phone = req.user.phone;
+  }
+  // console.log(value)
+  res.render("users/profile", { name: name });
+});
+
 
 router.post("/", async (req, res) => {
   try {
@@ -45,8 +50,8 @@ router.post("/", async (req, res) => {
     const users = new userModel({
       name: req.body.name,
       old: req.body.old,
-      sex: req.body.sex,
-      place: req.body.place,
+      address: req.body.address,
+      phone: req.body.phone,
       email: req.body.email,
       level: req.body.level,
       password: hashedPassword,
@@ -67,6 +72,29 @@ router.get("/logout", (req, res) => {
   res.redirect("/user/login");
 });
 
+router.get("/edit/:id", check, async (req, res) => {
+  try {
+    const user = await userModel.findById(req.params.id);
+    res.render("users/profile", { user: user });
+  } catch (e) {
+    console.log(e);
+    res.redirect("/");
+  }
+});
+router.put("/edit/:id", async (req, res) => {
+  try {
+    const user = await userModel.findById(req.params.id);
+    user.name = req.body.name;
+    user.address = req.body.address;
+    user.phone = req.body.phone;
+    user.email = req.body.email;
+    await user.save();
+    res.redirect("/user/profile");
+  } catch (e) {
+    console.log(e);
+    res.redirect("/");
+  }
+});
 router.delete("/:id", async (req, res) => {
   try {
     const user = await userModel.findByIdAndDelete(req.params.id);
