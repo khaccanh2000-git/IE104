@@ -7,10 +7,10 @@ const passport = require("passport");
 
 function check(req, res, next) {
     if (req.isAuthenticated() && req.user.role === "Admin") {
-      console.log("la tk admin")
+      req.flash("success", "Login successfully");
     return next();
   }
-  console.log("k la tk admin")
+  req.flash("error", "Account doesn't have permission");
   res.redirect("/admin/login");
 }
 
