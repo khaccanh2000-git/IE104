@@ -16,16 +16,13 @@
                                     <div class="ec-product-inner">
                                         <div class="ec-pro-image-outer">
                                             <div class="ec-pro-image">
-                                                <a href="product-left-sidebar.html" class="image">
+                                                <a href="/product/detail/<%=pro.id %>" class="image">
                                                     <img class="main-image" src="<%=pro.imageSrc %>" alt="Product" />
-                                                    <img class="hover-image" src="<%=pro.imageSrc %>" alt="Product" />
+
                                                 </a>
 
                                                 <div class="ec-pro-actions">
-                                                    <a href="/product/detail/<%=pro.id %>"
-                                                        class="ec-btn-group quickview" title="Quick view"><img
-                                                            src="/images/icons/quickview.svg" class="svg_img pro_svg"
-                                                            alt="" /></a>
+
                                                     <a title="Add To Cart" class="add-to-cart addToCart"
                                                         href="/cart/add/<%= pro.id%>">
                                                         <img src="/images/icons/cart.svg" class="svg_img pro_svg"
@@ -40,7 +37,7 @@
                                             <h5 class="ec-pro-title">
                                                 <a href="product-left-sidebar.html">
                                                     <%=pro.name %>
-                                                        <%=pro.color %>
+
                                                 </a>
                                             </h5>
                                             <div class="ec-pro-rating">

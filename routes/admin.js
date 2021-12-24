@@ -25,6 +25,7 @@ router.get("/", check, async (req, res) => {
 router.get("/login", (req, res) => {
   res.render("admin/login");
 });
+
 router.post(
   "/login",
   passport.authenticate("local", {

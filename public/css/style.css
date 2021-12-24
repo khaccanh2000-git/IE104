@@ -3053,6 +3053,7 @@ textarea.form-control.is-invalid {
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  border-radius: 10px !important;
 }
 .btn:hover {
   color: #444444;
@@ -19447,7 +19448,7 @@ button.btn-close.qty_close {
 .ec-product-inner .ec-pro-image {
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  position: relative;
+  position: relative; 
   overflow: hidden;
   height: 330px;
 }
@@ -21651,6 +21652,7 @@ select::-ms-expand {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  border-radius: 10px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -32533,12 +32535,16 @@ input[type=email]:focus::-webkit-input-placeholder {
   margin-top:10px;
   display: flex;
   height: 100%;
-    justify-content: space-around ;
+    justify-content: space-between ;
     width: 28%;
+}
+.edit span{
+  margin-right: 5px !important;
 }
 button.changeQty{
   width: 30px;
   height: 30px;
+  margin-right: 10px !important;
 }
 .numberQty{
   font-size: 16px;
@@ -32547,4 +32553,14 @@ button.changeQty{
 .logo_uit{
   height: 50px;
   transform: scale(0.9);
+}
+.btnDelete{
+  width: 50px;
+}
+.btnDelete span i{
+  width: 100% !important;
+}
+.btnOrder{
+  margin-top: 10px;
+  width: 150px ;
 }
